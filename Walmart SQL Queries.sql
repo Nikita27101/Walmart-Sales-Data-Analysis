@@ -34,7 +34,7 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 
-------------------- Feature Engineering -----------------------------
+--- Feature Engineering ---
 1. Time_of_day
 
 SELECT time,
@@ -68,7 +68,7 @@ ALTER TABLE sales ADD COLUMN day_name VARCHAR(10);
 UPDATE sales
 SET day_name = DAYNAME(date);
 
-3.Momth_name
+3.Month_name
 
 SELECT date,
 MONTHNAME(date) AS month_name
@@ -80,8 +80,7 @@ UPDATE sales
 SET month_name = MONTHNAME(date);
 
 
-----------------Exploratory Data Analysis (EDA)----------------------
-Generic Questions
+---Exploratory Data Analysis (EDA)---
 -- 1.How many distinct cities are present in the dataset?
 SELECT DISTINCT city FROM sales;
 
@@ -165,7 +164,6 @@ SELECT customer_type, SUM(VAT) AS total_VAT
 FROM sales GROUP BY customer_type ORDER BY total_VAT DESC LIMIT 1;
 
 Customer Analysis
-
 -- 1.How many unique customer types does the data have?
 SELECT COUNT(DISTINCT customer_type) FROM sales;
 
